@@ -2,12 +2,17 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f5f5ec"><meta name="description" content="从第一颗种子开始，60天循序渐进学习定投、指数投资与Python回测。">
+<meta name="theme-color" content="#f5f5ec"><meta name="description" content="用5分钟体验定投如何买入以及为什么仍可能亏损。60课、建议12周，配合互动实验学习股票、基金与定投，Python回测为可选进阶。">
 <title>定投生长记 · 每一天，都在扎根</title>
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./experience.css">
+<link rel="stylesheet" href="./dca-lab.css">
+<link rel="stylesheet" href="./learning-scenes.css">
+<link rel="stylesheet" href="./tree-growth.css">
 <script defer src="./curriculum-1.js"></script><script defer src="./curriculum-2.js"></script><script defer src="./curriculum-3.js"></script>
-<script defer src="./core.js"></script><script defer src="./app.js"></script>
+<script defer src="./core.js"></script><script defer src="./player.js"></script>
+<script defer src="./dca-lab.js"></script><script defer src="./learning-scenes.js"></script><script defer src="./app.js"></script>
 <script type="module" src="./tree.js"></script>
 </head>
 <body>
@@ -29,12 +34,13 @@
 </div>
 </aside>
 <div class="workspace">
-<header class="topbar"><span id="breadcrumb">学习花园 <span>/</span> 一步一步，走向长期</span><div><button id="motion-toggle" class="icon-button" aria-pressed="false" title="切换生长树动画">◌ <span>动画开启</span></button><span class="avatar" aria-label="学习者">学</span></div></header>
+<header class="topbar"><span id="breadcrumb">学习花园 <span>/</span> 一步一步，走向长期</span><div><button id="motion-toggle" class="icon-button" aria-pressed="false" title="关闭或开启全站动态效果；关闭后仍可逐步查看实验">◌ <span>动画开启</span></button><span class="avatar" aria-label="学习者">学</span></div></header>
 <div id="storage-warning" role="alert" hidden></div>
 <main id="main" tabindex="-1"></main>
 <footer class="footer"><span>✳ 定投生长记 <span class="footer-dot">·</span> 让知识先于投资生长</span><span>学习与模拟用途，不构成投资建议</span></footer>
 </div></div>
 <div id="toast" role="status" aria-live="polite"></div>
 <dialog id="backup-dialog" aria-labelledby="backup-title"><form method="dialog"><button class="dialog-close" aria-label="关闭">×</button></form><p class="eyebrow">KEEP YOUR GROWTH</p><h2 id="backup-title">把成长好好保存</h2><p>打卡、笔记和答题记录只保存在当前浏览器。换设备或清理浏览器前，请先导出备份。</p><button class="button primary" id="export-data">↧ 导出学习备份</button><label class="button secondary import-label" for="import-file">↥ 选择备份文件</label><input type="file" id="import-file" accept=".json,application/json" hidden><div id="import-preview" aria-live="polite"></div><p class="fineprint">备份文件包含你的笔记，请自行保管。导入需要确认，会替换当前记录。</p></dialog>
+<dialog id="term-dialog" aria-labelledby="term-title"><form method="dialog"><button class="dialog-close" aria-label="关闭术语解释">×</button></form><p class="eyebrow">A SMALL EXPLANATION</p><h2 id="term-title"></h2><p id="term-definition"></p><div class="term-example"><strong>举个例子</strong><p id="term-example"></p></div><form method="dialog"><button class="button primary">明白了，继续阅读</button></form></dialog>
 <noscript>请启用 JavaScript 以阅读课程和保存学习进度。</noscript>
 </body></html>
