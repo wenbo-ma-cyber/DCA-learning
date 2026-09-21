@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f5ec"><meta name="description" content="从第一颗种子开始，60天循序渐进学习定投、指数投资与Python回测。">
+<title>定投生长记 · 每一天，都在扎根</title>
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./styles.css">
+<script defer src="./curriculum-1.js"></script><script defer src="./curriculum-2.js"></script><script defer src="./curriculum-3.js"></script>
+<script defer src="./core.js"></script><script defer src="./app.js"></script>
+<script type="module" src="./tree.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳转到主要内容</a>
+<div class="app-shell">
+<aside class="sidebar">
+<a class="brand" href="#home" aria-label="定投生长记首页"><span class="brand-mark">✳</span><span>定投生长记<small>THE PATIENT INVESTOR</small></span></a>
+<div class="sidebar-body">
+<p class="eyebrow nav-caption">我的学习空间</p>
+<nav class="main-nav" aria-label="主要导航">
+<a href="#home" data-nav="home"><span>⌂</span>学习花园</a>
+<a href="#roadmap" data-nav="roadmap"><span>▤</span>成长路线<span class="nav-count">60</span></a>
+<a href="#labs" data-nav="labs"><span>◈</span>投资实验室</a>
+<a href="#notes" data-nav="notes"><span>▧</span>我的笔记</a>
+</nav>
+<div class="sidebar-progress"><div><span>你的成长进度</span><strong id="side-percent">0%</strong></div><progress id="side-progress" max="60" value="0">0 / 60</progress><small id="side-message">不赶路，慢慢扎根。</small></div>
+<div class="sidebar-quote"><span>“</span><p>最好的投资，<br>是投资自己的认知。</p><small>一点积累，长久生长。</small></div>
+<div class="sidebar-bottom"><button class="subtle" id="backup-open"><span>↥</span> 数据与备份</button><div class="device-local"><i></i> 进度仅保存在本机</div></div>
+</div>
+</aside>
+<div class="workspace">
+<header class="topbar"><span id="breadcrumb">学习花园 <span>/</span> 一步一步，走向长期</span><div><button id="motion-toggle" class="icon-button" aria-pressed="false" title="切换生长树动画">◌ <span>动画开启</span></button><span class="avatar" aria-label="学习者">学</span></div></header>
+<div id="storage-warning" role="alert" hidden></div>
+<main id="main" tabindex="-1"></main>
+<footer class="footer"><span>✳ 定投生长记 <span class="footer-dot">·</span> 让知识先于投资生长</span><span>学习与模拟用途，不构成投资建议</span></footer>
+</div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<dialog id="backup-dialog" aria-labelledby="backup-title"><form method="dialog"><button class="dialog-close" aria-label="关闭">×</button></form><p class="eyebrow">KEEP YOUR GROWTH</p><h2 id="backup-title">把成长好好保存</h2><p>打卡、笔记和答题记录只保存在当前浏览器。换设备或清理浏览器前，请先导出备份。</p><button class="button primary" id="export-data">↧ 导出学习备份</button><label class="button secondary import-label" for="import-file">↥ 选择备份文件</label><input type="file" id="import-file" accept=".json,application/json" hidden><div id="import-preview" aria-live="polite"></div><p class="fineprint">备份文件包含你的笔记，请自行保管。导入需要确认，会替换当前记录。</p></dialog>
+<noscript>请启用 JavaScript 以阅读课程和保存学习进度。</noscript>
+</body></html>
