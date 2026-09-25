@@ -1,6 +1,29 @@
 # 定投生长记
 
-60 天中文定投学习网站。原生 HTML / CSS / JavaScript，Three.js 0.180.0 生长树；无需构建、账号或服务器。所有交付都在本文件夹内。
+60 天中文定投学习网站，附 8 节量化算法进阶课程与 4 个策略实验。原生 HTML / CSS / JavaScript，Three.js 0.180.0 生长树；无需构建、账号或服务器。所有交付都在本文件夹内。
+
+## 量化算法学习
+
+从「我的学习空间 → 量化算法」进入，也可直接访问 `#quant`。
+
+- 课程覆盖收益与回撤、同类基金筛选、动量、逆波动权重、再平衡、定投现金流、无前视回测和样本外验证。
+- 每课包含目标、讲解、公式、手算例子、练习、两道自测、Python 标准库示例和笔记。
+- `#quant/lab` 提供基金筛选、动量窗口、逆波动权重与定投再平衡四个实验；数据均为人工构造，不接入实时行情、不执行交易。
+- 8 节量化课程单独统计进度，原有 60 课与成长树的计数不变。量化笔记同时出现在「我的笔记」。
+- 沿用现有 v1 学习记录和备份格式，旧备份可以导入。导入始终完整替换全部记录；只含基础课程的旧备份会清除当前量化记录，导入前请先导出。含 `quant-*` 记录的新备份需在本次更新后的网站使用，未更新的旧网站不认识新课程 ID。
+
+新增文件：`quant-curriculum.js`（课程）、`quant-core.js`（纯计算）、`quant.js`（页面和实验）、`quant.css`（响应式样式）。发布时应一起上传这四个文件及更新后的 `index.html`、`app.js`。本版本也移除了原页面中指向仓库缺失文件的 5 个资源引用，避免加载 404；没有从其他本地副本覆盖旧功能。
+
+可复现检查（每条上限 60 秒；无第三方依赖）：
+
+```bash
+timeout 60s node tests/quant-core.test.cjs
+timeout 60s node tests/quant-integration.test.cjs
+node --check quant.js
+node --check app.js
+```
+
+第二条检查还需 Python 3，用于运行课程内的 8 段标准库示例。网站为静态文件，没有构建步骤。浏览器验证记录见 `tests/quant-verification.md`。
 
 ## 直接使用
 
@@ -17,7 +40,7 @@ Windows 可用 `python` 替换 `python3`。访问 `http://127.0.0.1:8000/`。按
 ## 部署到 GitHub Pages（无需购买服务器）
 
 1. 在 GitHub 新建一个仓库，例如 `dca-learning`。使用免费个人账户时，可选择公开仓库。
-2. 将本文件夹里的 `index.html`、`styles.css`、`app.js`、`core.js`、`tree.js`、三个 `curriculum-*.js`、`assets/`、`downloads/`、`.nojekyll` 和本说明上传到仓库根目录。**根目录应直接有 index.html，不要再套一层 dca-learning 文件夹。** `tests/` 和 ZIP 压缩包是本地验收材料，不需要上传。
+2. 将本文件夹里的 `index.html`、`styles.css`、`experience.css`、`app.js`、`core.js`、`player.js`、`tree.js`、三个 `curriculum-*.js`、四个 `quant*` 文件（不含测试）、`assets/`、`downloads/`、`.nojekyll` 和本说明上传到仓库根目录。**根目录应直接有 index.html，不要再套一层 dca-learning 文件夹。** `tests/` 和 ZIP 压缩包是本地验收材料，不需要上传。
 3. 在仓库 **Settings → Pages → Build and deployment** 中，将 Source 设为 **Deploy from a branch**，选择 **main** 分支、**/(root)**，保存。
 4. 等 GitHub 部署完成，打开 Pages 页面显示的网址，通常是 `https://你的用户名.github.io/dca-learning/`。
 5. 以后修改课程或页面后上传同名文件，GitHub Pages 会更新；不要改动课程 ID，否则旧进度无法正确对应。
@@ -61,19 +84,11 @@ GitHub 官方指南：https://docs.github.com/en/pages/getting-started-with-gith
 
 ## 验证
 
-无需第三方依赖的检查：
+量化模块的可复现命令见本文开头。浏览器测试通过本机 HTTP 服务进行，具体用例与结果见 `tests/quant-verification.md`；它不要求安装浏览器测试依赖。
 
-```bash
-node tests/core.test.cjs
-node --check app.js
-node --check core.js
-```
+原有 Python 定投项目的验证按 `downloads/README-template.md` 执行；本次量化模块更新没有重新运行该项目的回测。
 
-Python 数学及示例运行请按 `downloads/README-template.md` 安装依赖，执行 `python backtest.py --self-test` 和 `python backtest.py`。
-
-浏览器测试需要 Node.js、Playwright 包和已安装的 Chrome；测试默认检查本地 `http://127.0.0.1:8765/dca-learning/`（在本目录上级启动 8765 端口的 HTTP 服务）。可通过 `TEST_URL` 和 `CHROME_PATH` 环境变量更改网址和 Chrome 路径，执行 `node tests/browser.test.cjs`。运行会在 `tests/` 更新截图，不改动用户常用浏览器的数据。
-
-实际验收结果参见 `tests/验收记录.md`。课程官方资料的核查日期记录在每节课末。网站未代为发布到 GitHub，本地验证不等于线上发布成功。
+网站为静态文件，无需构建。本地验证不等于线上发布成功；本次尚未推送或部署。
 
 ## 内容与许可
 
