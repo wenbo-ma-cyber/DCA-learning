@@ -2,17 +2,16 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f5f5ec"><meta name="description" content="用5分钟体验定投如何买入以及为什么仍可能亏损。60课、建议12周，配合互动实验学习股票、基金与定投，Python回测为可选进阶。">
+<meta name="theme-color" content="#f5f5ec"><meta name="description" content="用5分钟体验定投如何买入以及为什么仍可能亏损。60课、建议12周，配合互动实验学习股票、基金与定投；新增8节量化算法课程与4个策略实验。">
 <title>定投生长记 · 每一天，都在扎根</title>
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="./styles.css">
 <link rel="stylesheet" href="./experience.css">
-<link rel="stylesheet" href="./dca-lab.css">
-<link rel="stylesheet" href="./learning-scenes.css">
-<link rel="stylesheet" href="./tree-growth.css">
+<link rel="stylesheet" href="./quant.css">
 <script defer src="./curriculum-1.js"></script><script defer src="./curriculum-2.js"></script><script defer src="./curriculum-3.js"></script>
 <script defer src="./core.js"></script><script defer src="./player.js"></script>
-<script defer src="./dca-lab.js"></script><script defer src="./learning-scenes.js"></script><script defer src="./app.js"></script>
+<script defer src="./quant-curriculum.js"></script><script defer src="./quant-core.js"></script>
+<script defer src="./quant.js"></script><script defer src="./app.js"></script>
 <script type="module" src="./tree.js"></script>
 </head>
 <body>
@@ -26,9 +25,10 @@
 <a href="#home" data-nav="home"><span>⌂</span>学习花园</a>
 <a href="#roadmap" data-nav="roadmap"><span>▤</span>成长路线<span class="nav-count">60</span></a>
 <a href="#labs" data-nav="labs"><span>◈</span>投资实验室</a>
+<a href="#quant" data-nav="quant"><span>ƒ</span>量化算法<span class="nav-count">8</span></a>
 <a href="#notes" data-nav="notes"><span>▧</span>我的笔记</a>
 </nav>
-<div class="sidebar-progress"><div><span>你的成长进度</span><strong id="side-percent">0%</strong></div><progress id="side-progress" max="60" value="0">0 / 60</progress><small id="side-message">不赶路，慢慢扎根。</small></div>
+<div class="sidebar-progress"><div><span>基础课程进度</span><strong id="side-percent">0%</strong></div><progress id="side-progress" max="60" value="0">0 / 60</progress><small id="side-message">不赶路，慢慢扎根。</small></div>
 <div class="sidebar-quote"><span>“</span><p>最好的投资，<br>是投资自己的认知。</p><small>一点积累，长久生长。</small></div>
 <div class="sidebar-bottom"><button class="subtle" id="backup-open"><span>↥</span> 数据与备份</button><div class="device-local"><i></i> 进度仅保存在本机</div></div>
 </div>
